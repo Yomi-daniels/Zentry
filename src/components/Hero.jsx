@@ -8,9 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
-
   const [hasClicked, setHasClicked] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // Controls the loader
   const [loadedVideos, setLoadedVideos] = useState(0);
   const totalVideos = 4;
   const nextVideoRef = useRef(null);
@@ -18,25 +17,21 @@ const Hero = () => {
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   };
-  //MODULO OPERATION
-  //divide the number 1 by 4
-  // 0 % 4 = 0 + 1 => 1
-  // 1 % 4 = 1 + 1 => 2
-  // 2 % 4 = 2 + 1 => 3
-  // 3 % 4 = 3 + 1 => 4
-  // 4 % 4 = 4 + 1 => 1
+
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
   const handleMiniVdclick = () => {
     setHasClicked(true);
-
     setCurrentIndex(upcomingVideoIndex);
   };
 
   useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
+    // Simulate loading screen for 3 seconds
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    }
-  });
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timeout on unmount
+  }, []);
 
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
@@ -94,6 +89,7 @@ const Hero = () => {
         </div>
       )}
 
+      {/* Main Content */}
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded- lg bg-blue-75 "
