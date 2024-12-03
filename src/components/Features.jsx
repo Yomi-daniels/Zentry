@@ -14,6 +14,7 @@ const BentoCard = ({
         loop
         muted
         autoPlay
+        playsInline
         className="absolute top-0 left-0 size-full object-cover"
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
