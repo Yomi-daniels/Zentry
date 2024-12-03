@@ -32,41 +32,42 @@ const BentoCard = ({
   );
 };
 
-const BentoTilt = ({
-  children, className = ''
-}) => {
-  const [transformStyle, setTransformStyle] = useState('')
-  const itemRef = useRef()
+const BentoTilt = ({ children, className = "" }) => {
+  const [transformStyle, setTransformStyle] = useState("");
+  const itemRef = useRef();
 
   const handleMouseMove = (e) => {
-    if(!itemRef.current) return
+    if (!itemRef.current) return;
 
-    const {left, top, width, height} = itemRef.current.getBoundingClientRect(); 
+    const { left, top, width, height } =
+      itemRef.current.getBoundingClientRect();
 
     const relativeX = (e.clientX - left) / width;
     const relativeY = (e.clientY - top) / height;
 
-    const tiltX = (relativeY - 0.5) * 5
-    const tiltY = (relativeX - 0.5) * -5
+    const tiltX = (relativeY - 0.5) * 5;
+    const tiltY = (relativeX - 0.5) * -5;
 
-    const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.98, 0.98, 0.98)`
+    const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.98, 0.98, 0.98)`;
 
-    setTransformStyle(newTransform)
-  }
+    setTransformStyle(newTransform);
+  };
 
   const handleMouseLeave = () => {
-    setTransformStyle('')
-  }
+    setTransformStyle("");
+  };
   return (
-    <div className={className}
-    ref={itemRef}
-    onMouseMove={handleMouseMove}
-    onMouseLeave={handleMouseLeave}
-    style={{transform: transformStyle}}>
+    <div
+      className={className}
+      ref={itemRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transform: transformStyle }}
+    >
       {children}
     </div>
-  )
-}
+  );
+};
 
 const Features = () => {
   return (
@@ -88,7 +89,7 @@ const Features = () => {
             src="videos/feature-1.mp4"
             title={
               <>
-                radi<b>n</b>t
+                radia<b>n</b>t
               </>
             }
             description="A cross-platform metagame app, turning your activities across web2 and web3 games into a rewarding adventure."
@@ -132,23 +133,23 @@ const Features = () => {
               titleGradient="from-yellow-500 to-orange-500"
             />
           </BentoTilt>
-                <BentoTilt className="bento-tilt_2">
-                    <div className="flex size-full flex-col justify-between bg-violet-300 p-5 ">
-                        <h1 className="bento-title special-font max-w-64">M<b>o</b>re co<b>m</b>ing s<b>o</b>on!
-                   
-                        </h1>
-                        <TiLocationArrow className="m-5 scale-[5] self-end"/>
-                    </div>
-                </BentoTilt>
-                <div className="bento-tilt_2">
-                <video src="videos/feature-5.mp4"
-                    loop
-                    muted
-                    autoPlay
-                    className="size-full object-cover object-center"
-                />
-
-                </div>
+          <BentoTilt className="bento-tilt_2">
+            <div className="flex size-full flex-col justify-between bg-violet-300 p-5 ">
+              <h1 className="bento-title special-font max-w-64">
+                M<b>o</b>re co<b>m</b>ing s<b>o</b>on!
+              </h1>
+              <TiLocationArrow className="m-5 scale-[5] self-end" />
+            </div>
+          </BentoTilt>
+          <div className="bento-tilt_2">
+            <video
+              src="videos/feature-5.mp4"
+              loop
+              muted
+              autoPlay
+              className="size-full object-cover object-center"
+            />
+          </div>
         </div>
       </div>
     </section>
