@@ -97,8 +97,8 @@ const Features = () => {
             titleGradient="from-red-500 to-yellow-500"
           />
         </BentoTilt>
-        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
-          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7 ">
+          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2 ">
             <BentoCard
               src="videos/feature-2.mp4"
               title={
@@ -110,7 +110,7 @@ const Features = () => {
               titleGradient="from-blue-500 to-green-500"
             />
           </BentoTilt>
-          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0 ">
             <BentoCard
               src="videos/feature-3.mp4"
               title={
@@ -119,7 +119,7 @@ const Features = () => {
                 </>
               }
               description="A gamified social hub, adding a new dimension of play to social interaction for web3 communities."
-              titleGradient="from-purple-500 to-pink-500"
+              titleGradient="from-purple-500 to-pink-500 "
             />
           </BentoTilt>
           <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
@@ -148,6 +148,7 @@ const Features = () => {
               loop
               muted
               autoPlay
+              playsInline
               className="size-full object-cover object-center"
             />
           </div>
